@@ -32,7 +32,9 @@ function Header() {
           <CustomClose onClick={() => setBurgerStatus(false)} />
         </CloseWrapper>
         <li>
-          <a href="http://localhost:3000/">Existing Inventontary</a>
+          <a index="#" href="http://localhost:3000/">
+            Existing Inventontary
+          </a>
         </li>
         <li>
           <a href="http://localhost:3000/">Used Inventory</a>
@@ -149,7 +151,7 @@ const BurgerNav = styled.div`
   top: 0;
   bottom: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.06);
+  background: rgba(256, 256, 256, 0.7);
   width: 300px;
   z-index: 6;
   list-style: none;
