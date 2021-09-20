@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import Fade from 'react-reveal/Fade';
+import Jump from 'react-reveal/Jump';
 
 function Section({
   title,
@@ -10,17 +12,34 @@ function Section({
 }) {
   return (
     <Warp bgImg={backgroundImg}>
-      <ItemText>
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </ItemText>
+      <Fade bottom>
+        <ItemText>
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </ItemText>
+      </Fade>
       <Buttons>
-        <ButtonGroup>
-          <LeftButton>{leftBtnText}</LeftButton>
-          {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
-        </ButtonGroup>
-        <DownArrow src="/images/down-arrow.svg" />
+        <Fade bottom>
+          <ButtonGroup>
+            <LeftButton>{leftBtnText}</LeftButton>
+            {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
+          </ButtonGroup>
+        </Fade>
+        <Jump>
+          <DownArrow src="/images/down-arrow.svg" />
+        </Jump>
       </Buttons>
+      {/* <Buttons>
+        <Fade bottom>
+          <ButtonGroup>
+            <LeftButton>{leftBtnText}</LeftButton>
+            {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
+          </ButtonGroup>
+        </Fade>
+        <Jump>
+          <DownArrow src="/images/down-arrow.svg" />
+        </Jump>
+      </Buttons> */}
     </Warp>
   );
 }
@@ -51,6 +70,7 @@ const Buttons = styled.div``;
 const ButtonGroup = styled.div`
   display: flex;
   margin-bottom: 30px;
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -81,19 +101,4 @@ const DownArrow = styled.img`
   margin-top: 20px;
   height: 30px;
   overflow-x: hidden;
-  animation: animateDown infinte 1.5s;
-  @keyframes animateDown {
-    0%,
-    20%,
-    60%,
-    100% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(5px);
-    }
-    60% {
-      transform: translateY(3px);
-    }
-  }
 `;
